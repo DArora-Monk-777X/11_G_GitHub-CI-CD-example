@@ -8,11 +8,16 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    container:
+      image: ubuntu:18.04
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Build stage
         run: |
           echo "Building..."
+          echo "Im running inside of a container"
+          pwd 
+          ls
 
   test:
     runs-on: self-hosted
