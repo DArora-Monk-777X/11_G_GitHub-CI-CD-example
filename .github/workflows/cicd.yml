@@ -1,11 +1,8 @@
-name: CI
+name: CICD-example
 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  # CHANGE TO YOUR BRANCH
   push:
     branches: [ main ]
-
 
 
 jobs:
@@ -13,10 +10,24 @@ jobs:
     runs-on: self-hosted
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: Building docker images
+      - name: Build stage
         run: |
-          cd app
-          docker --version
+          echo "Building..."
+
+  test:
+    runs-on: self-hosted
+    needs: [build]
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Test stage
+        run: |
+          echo "Testing..."
  
+  Deploy:
+    runs-on: self-hosted
+    needs: [test]
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Deploy stage
+        run: |
+          echo "Deploying..."    
