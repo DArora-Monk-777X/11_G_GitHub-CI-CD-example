@@ -9,7 +9,6 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Build 
         run: |
           echo "Building..."
@@ -18,7 +17,6 @@ jobs:
     runs-on: self-hosted
     needs: [build]
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Test 
         run: |
           echo "Testing..."
@@ -27,7 +25,6 @@ jobs:
     runs-on: self-hosted
     needs: [test]
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Deploy 
         run: |
           echo "Deploying..."    
