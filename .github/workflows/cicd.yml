@@ -8,10 +8,15 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    container:
+      image: ubuntu:18.04
     steps:
       - name: Build 
         run: |
           echo "Building..."
+          echo "Im running inside of the container"
+          pwd
+          ls
 
   test:
     runs-on: self-hosted
