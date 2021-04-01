@@ -15,7 +15,6 @@ jobs:
         run: |
           echo "Building..."
           echo "Im running inside of the container"
-          pwd
           ls
 
   test:
