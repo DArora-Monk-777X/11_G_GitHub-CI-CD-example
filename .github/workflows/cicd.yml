@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Build 
         run: |
-          echo "Building"
+          echo "Building..."
 
   test:
     runs-on: self-hosted
@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Test 
         run: |
-          echo "Testing"
+          echo "Testing..."
  
   Deploy:
     runs-on: self-hosted
